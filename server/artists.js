@@ -19,7 +19,6 @@ function validateArtist(req, res, next) {
 artistsRouter.get('/', (req, res, next) => {
   db.all('SELECT * FROM Artist WHERE is_currently_employed=1', (err, rows) => {
     if (err) {
-      console.log('>>> Error 500');
       res.status(500).send();
     } else {
       res.send({artists: rows});
@@ -114,8 +113,6 @@ artistsRouter.delete('/:id', (req, res, next) => {
 
       res.send({artist: row});
     });
-
-    //res.send();
   });
 });
 
