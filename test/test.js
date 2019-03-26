@@ -11,7 +11,7 @@ const seed = require('./seed.js');
 const prodDb = new sqlite3.Database('./database.sqlite');
 let testDb = new sqlite3.Database(process.env.TEST_DATABASE);
 
-xdescribe('Artist Table', function() {
+describe('Artist Table', function() {
   it('should exist', function(done) {
     prodDb.get("SELECT name FROM sqlite_master WHERE type='table' AND name='Artist'", (error, table) => {
       if (error || !table) {
@@ -259,7 +259,7 @@ describe('Issue Table', function() {
   });
 });
 
-xdescribe('GET /api/artists', function() {
+describe('GET /api/artists', function() {
   before(function(done) {
     seed.seedArtistDatabase(done);
   });
@@ -283,7 +283,7 @@ xdescribe('GET /api/artists', function() {
   });
 });
 
-xdescribe('GET /api/artists/:id', function() {
+describe('GET /api/artists/:id', function() {
   before(function(done) {
     seed.seedArtistDatabase(done);
   });
@@ -314,7 +314,7 @@ xdescribe('GET /api/artists/:id', function() {
   });
 });
 
-xdescribe('POST /api/artists', function() {
+describe('POST /api/artists', function() {
   let newArtist;
 
   beforeEach(function(done) {
@@ -390,7 +390,7 @@ xdescribe('POST /api/artists', function() {
   });
 });
 
-xdescribe('PUT /api/artists/:id', function() {
+describe('PUT /api/artists/:id', function() {
   let updatedArtist;
 
   beforeEach(function(done) {
@@ -459,7 +459,7 @@ xdescribe('PUT /api/artists/:id', function() {
   });
 });
 
-xdescribe('DELETE /api/artists/:id', function() {
+describe('DELETE /api/artists/:id', function() {
   beforeEach(function(done) {
     seed.seedArtistDatabase(done);
   });
